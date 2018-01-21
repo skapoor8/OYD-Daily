@@ -30,4 +30,6 @@ test:
 
 production:
   <<: *default
+  url: <%= ENV['DB_URL'] %>
   database: db/production
+
