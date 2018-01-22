@@ -1,0 +1,167 @@
+<%= form_with(model: student, local: true) do |form| %>
+  <% if student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+      <% student.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :oyd_id %>
+    <%= form.number_field :oyd_id, id: :student_oyd_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_area :first_name, id: :student_first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :middle_name %>
+    <%= form.text_area :middle_name, id: :student_middle_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_area :last_name, id: :student_last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nick_name %>
+    <%= form.text_area :nick_name, id: :student_nick_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :age %>
+    <%= form.number_field :age, id: :student_age %>
+  </div>
+
+  <div class="field">
+    <%= form.label :birth_date %>
+    <%= form.date_select :birth_date, id: :student_birth_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_area :status, id: :student_status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :drop_reason %>
+    <%= form.text_area :drop_reason, id: :student_drop_reason %>
+  </div>
+
+  <div class="field">
+    <%= form.label :position %>
+    <%= form.text_area :position, id: :student_position %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rank %>
+    <%= form.text_area :rank, id: :student_rank %>
+  </div>
+
+  <div class="field">
+    <%= form.label :next_rank %>
+    <%= form.text_area :next_rank, id: :student_next_rank %>
+  </div>
+
+  <div class="field">
+    <%= form.label :class_group %>
+    <%= form.text_area :class_group, id: :student_class_group %>
+  </div>
+
+  <div class="field">
+    <%= form.label :street %>
+    <%= form.text_area :street, id: :student_street %>
+  </div>
+
+  <div class="field">
+    <%= form.label :street2 %>
+    <%= form.text_area :street2, id: :student_street2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_area :city, id: :student_city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :postal_code %>
+    <%= form.text_area :postal_code, id: :student_postal_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.text_area :country, id: :student_country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_area :email, id: :student_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mobile_phone %>
+    <%= form.text_area :mobile_phone, id: :student_mobile_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :home_phone %>
+    <%= form.text_area :home_phone, id: :student_home_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :parental_contact %>
+    <%= form.text_area :parental_contact, id: :student_parental_contact %>
+  </div>
+
+  <div class="field">
+    <%= form.label :occupation %>
+    <%= form.text_area :occupation, id: :student_occupation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :how_found %>
+    <%= form.text_area :how_found, id: :student_how_found %>
+  </div>
+
+  <div class="field">
+    <%= form.label :intern_points %>
+    <%= form.number_field :intern_points, id: :student_intern_points %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_test_date %>
+    <%= form.date_select :last_test_date, id: :student_last_test_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :next_test_date %>
+    <%= form.date_select :next_test_date, id: :student_next_test_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :facebook %>
+    <%= form.text_area :facebook, id: :student_facebook %>
+  </div>
+
+  <div class="field">
+    <%= form.label :instagram %>
+    <%= form.text_area :instagram, id: :student_instagram %>
+  </div>
+
+  <div class="field">
+    <%= form.label :twitter %>
+    <%= form.text_area :twitter, id: :student_twitter %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

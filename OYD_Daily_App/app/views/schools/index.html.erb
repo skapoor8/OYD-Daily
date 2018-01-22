@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Schools</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>School name</th>
+      <th>Main ins</th>
+      <th>School region</th>
+      <th>Street</th>
+      <th>Street2</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Postal code</th>
+      <th>Country</th>
+      <th>Email</th>
+      <th>School phone</th>
+      <th>Status</th>
+      <th>Standing</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @schools.each do |school| %>
+      <tr>
+        <td><%= school.school_name %></td>
+        <td><%= school.main_ins_id %></td>
+        <td><%= school.school_region %></td>
+        <td><%= school.street %></td>
+        <td><%= school.street2 %></td>
+        <td><%= school.city %></td>
+        <td><%= school.state %></td>
+        <td><%= school.postal_code %></td>
+        <td><%= school.country %></td>
+        <td><%= school.email %></td>
+        <td><%= school.school_phone %></td>
+        <td><%= school.status %></td>
+        <td><%= school.standing %></td>
+        <td><%= link_to 'Show', school %></td>
+        <td><%= link_to 'Edit', edit_school_path(school) %></td>
+        <td><%= link_to 'Destroy', school, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New School', new_school_path %>

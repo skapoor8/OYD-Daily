@@ -1,0 +1,65 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  oyd_id: 1
+  first_name: MyText
+  middle_name: MyText
+  last_name: MyText
+  nick_name: MyText
+  age: 1
+  birth_date: 2018-01-22
+  status: MyText
+  drop_reason: MyText
+  position: MyText
+  rank: MyText
+  next_rank: MyText
+  class_group: MyText
+  street: MyText
+  street2: MyText
+  city: MyText
+  postal_code: MyText
+  country: MyText
+  email: MyText
+  mobile_phone: MyText
+  home_phone: MyText
+  parental_contact: MyText
+  occupation: MyText
+  how_found: MyText
+  intern_points: 1
+  last_test_date: 2018-01-22
+  next_test_date: 2018-01-22
+  facebook: MyText
+  instagram: MyText
+  twitter: MyText
+
+two:
+  oyd_id: 1
+  first_name: MyText
+  middle_name: MyText
+  last_name: MyText
+  nick_name: MyText
+  age: 1
+  birth_date: 2018-01-22
+  status: MyText
+  drop_reason: MyText
+  position: MyText
+  rank: MyText
+  next_rank: MyText
+  class_group: MyText
+  street: MyText
+  street2: MyText
+  city: MyText
+  postal_code: MyText
+  country: MyText
+  email: MyText
+  mobile_phone: MyText
+  home_phone: MyText
+  parental_contact: MyText
+  occupation: MyText
+  how_found: MyText
+  intern_points: 1
+  last_test_date: 2018-01-22
+  next_test_date: 2018-01-22
+  facebook: MyText
+  instagram: MyText
+  twitter: MyText

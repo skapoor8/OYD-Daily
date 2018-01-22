@@ -1,0 +1,85 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Students</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Oyd</th>
+      <th>First name</th>
+      <th>Middle name</th>
+      <th>Last name</th>
+      <th>Nick name</th>
+      <th>Age</th>
+      <th>Birth date</th>
+      <th>Status</th>
+      <th>Drop reason</th>
+      <th>Position</th>
+      <th>Rank</th>
+      <th>Next rank</th>
+      <th>Class group</th>
+      <th>Street</th>
+      <th>Street2</th>
+      <th>City</th>
+      <th>Postal code</th>
+      <th>Country</th>
+      <th>Email</th>
+      <th>Mobile phone</th>
+      <th>Home phone</th>
+      <th>Parental contact</th>
+      <th>Occupation</th>
+      <th>How found</th>
+      <th>Intern points</th>
+      <th>Last test date</th>
+      <th>Next test date</th>
+      <th>Facebook</th>
+      <th>Instagram</th>
+      <th>Twitter</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.oyd_id %></td>
+        <td><%= student.first_name %></td>
+        <td><%= student.middle_name %></td>
+        <td><%= student.last_name %></td>
+        <td><%= student.nick_name %></td>
+        <td><%= student.age %></td>
+        <td><%= student.birth_date %></td>
+        <td><%= student.status %></td>
+        <td><%= student.drop_reason %></td>
+        <td><%= student.position %></td>
+        <td><%= student.rank %></td>
+        <td><%= student.next_rank %></td>
+        <td><%= student.class_group %></td>
+        <td><%= student.street %></td>
+        <td><%= student.street2 %></td>
+        <td><%= student.city %></td>
+        <td><%= student.postal_code %></td>
+        <td><%= student.country %></td>
+        <td><%= student.email %></td>
+        <td><%= student.mobile_phone %></td>
+        <td><%= student.home_phone %></td>
+        <td><%= student.parental_contact %></td>
+        <td><%= student.occupation %></td>
+        <td><%= student.how_found %></td>
+        <td><%= student.intern_points %></td>
+        <td><%= student.last_test_date %></td>
+        <td><%= student.next_test_date %></td>
+        <td><%= student.facebook %></td>
+        <td><%= student.instagram %></td>
+        <td><%= student.twitter %></td>
+        <td><%= link_to 'Show', student %></td>
+        <td><%= link_to 'Edit', edit_student_path(student) %></td>
+        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Student', new_student_path %>

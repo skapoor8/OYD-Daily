@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  school_name: MyText
+  main_ins_id: 1
+  school_region: 1
+  street: MyText
+  street2: MyText
+  city: MyText
+  state: MyText
+  postal_code: MyText
+  country: MyText
+  email: MyText
+  school_phone: MyText
+  status: 1
+  standing: 1
+
+two:
+  school_name: MyText
+  main_ins_id: 1
+  school_region: 1
+  street: MyText
+  street2: MyText
+  city: MyText
+  state: MyText
+  postal_code: MyText
+  country: MyText
+  email: MyText
+  school_phone: MyText
+  status: 1
+  standing: 1

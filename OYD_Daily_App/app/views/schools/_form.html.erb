@@ -1,0 +1,82 @@
+<%= form_with(model: school, local: true) do |form| %>
+  <% if school.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(school.errors.count, "error") %> prohibited this school from being saved:</h2>
+
+      <ul>
+      <% school.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :school_name %>
+    <%= form.text_area :school_name, id: :school_school_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :main_ins_id %>
+    <%= form.number_field :main_ins_id, id: :school_main_ins_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :school_region %>
+    <%= form.number_field :school_region, id: :school_school_region %>
+  </div>
+
+  <div class="field">
+    <%= form.label :street %>
+    <%= form.text_area :street, id: :school_street %>
+  </div>
+
+  <div class="field">
+    <%= form.label :street2 %>
+    <%= form.text_area :street2, id: :school_street2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_area :city, id: :school_city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :state %>
+    <%= form.text_area :state, id: :school_state %>
+  </div>
+
+  <div class="field">
+    <%= form.label :postal_code %>
+    <%= form.text_area :postal_code, id: :school_postal_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.text_area :country, id: :school_country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_area :email, id: :school_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :school_phone %>
+    <%= form.text_area :school_phone, id: :school_school_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.number_field :status, id: :school_status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :standing %>
+    <%= form.number_field :standing, id: :school_standing %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

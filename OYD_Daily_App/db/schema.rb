@@ -10,7 +10,60 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180122084807) do
+ActiveRecord::Schema.define(version: 20180122100836) do
+
+  create_table "schools", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "school_name"
+    t.integer "main_ins_id"
+    t.integer "school_region"
+    t.text "street"
+    t.text "street2"
+    t.text "city"
+    t.text "state"
+    t.text "postal_code"
+    t.text "country"
+    t.text "email"
+    t.text "school_phone"
+    t.integer "status"
+    t.integer "standing"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "students", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "oyd_id"
+    t.text "first_name"
+    t.text "middle_name"
+    t.text "last_name"
+    t.text "nick_name"
+    t.integer "age"
+    t.date "birth_date"
+    t.text "status"
+    t.text "drop_reason"
+    t.text "position"
+    t.text "rank"
+    t.text "next_rank"
+    t.text "class_group"
+    t.text "street"
+    t.text "street2"
+    t.text "city"
+    t.text "postal_code"
+    t.text "country"
+    t.text "email"
+    t.text "mobile_phone"
+    t.text "home_phone"
+    t.text "parental_contact"
+    t.text "occupation"
+    t.text "how_found"
+    t.integer "intern_points"
+    t.date "last_test_date"
+    t.date "next_test_date"
+    t.text "facebook"
+    t.text "instagram"
+    t.text "twitter"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
