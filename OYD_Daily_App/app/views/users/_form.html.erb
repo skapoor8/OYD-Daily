@@ -1,0 +1,69 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_area :first_name, id: :user_first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_area :last_name, id: :user_last_name %>
+  </div>
+
+ <div class="field">
+    <%= form.label :title %>
+    <%= form.text_area :title, id: :user_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_area :email, id: :user_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :oyd_id %>
+    <%= form.number_field :oyd_id, id: :user_oyd_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :access_level %>
+    <%= form.number_field :access_level, id: :user_access_level %>
+  </div>
+
+
+
+  <div class="field">
+    <%= form.label :def_school %>
+    <%= form.text_area :def_school, id: :user_def_school %>
+  </div>
+
+  <div class="field">
+    <%= form.label :def_region %>
+    <%= form.text_area :def_region, id: :user_def_region %>
+  </div>
+
+  <div class="field">
+    <%= form.label :def_nat_area %>
+    <%= form.text_area :def_nat_area, id: :user_def_nat_area %>
+  </div>
+
+  <div class="field">
+    <%= form.label :auth_schools %>
+    <%= form.text_area :auth_schools, id: :user_auth_schools %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  oyd_id: 1
+  access_level: 1
+  first_name: MyText
+  last_name: MyText
+  def_school: MyText
+  def_region: MyText
+  def_nat_area: MyText
+  auth_schools: MyText
+
+two:
+  name: MyString
+  oyd_id: 1
+  access_level: 1
+  first_name: MyText
+  last_name: MyText
+  def_school: MyText
+  def_region: MyText
+  def_nat_area: MyText
+  auth_schools: MyText
