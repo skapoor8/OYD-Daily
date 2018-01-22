@@ -47,6 +47,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :school %>
+    <%= form.collection_select :school_id, School.order(:school_name), :id, :school_name, include_blank: true %>
+  </div>
+
+  <div class="field">
     <%= form.label :status %>
     <%= form.text_area :status, id: :student_status %>
   </div>
