@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :select_school]
+  protect_from_forgery except: :select_school
 
   # GET /users
   # GET /users.json
@@ -10,6 +11,17 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @schools = School.all
+    @selected = @schools.first
+  end
+
+  def select_school
+    @schools = School.all
+    @selected = School.find(params[:selected])
+
+    respond_to do |format|
+      format.js 
+    end
   end
 
   # GET /users/new

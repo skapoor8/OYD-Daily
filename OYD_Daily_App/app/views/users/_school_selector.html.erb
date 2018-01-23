@@ -1,0 +1,7 @@
+  <% schools.each do |s| %>
+    <% if s == selected %>
+      <%= ">>" + s.school_name + "<<" %>
+    <% else %>
+      <%= link_to s.school_name, select_school_path(user, format: :js, selected: s), method: :get, remote: true %>
+    <% end %>
+  <% end %>

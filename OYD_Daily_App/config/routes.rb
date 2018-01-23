@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'application#hello'
+  get 'user/:id/select_school', to: "users#select_school", as: 'select_school'
   
 end

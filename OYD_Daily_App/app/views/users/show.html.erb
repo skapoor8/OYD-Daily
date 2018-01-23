@@ -1,49 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<div id="school-selector">
+  <%= render partial: "school_selector", locals: {schools: @schools, selected: @selected, user: @user} %>
+</div>
 
-<p>
-  <strong>Oyd:</strong>
-  <%= @user.oyd_id %>
-</p>
 
-<p>
-  <strong>Access level:</strong>
-  <%= @user.access_level %>
-</p>
-
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
-
-<p>
-  <strong>Def school:</strong>
-  <%= @user.def_school %>
-</p>
-
-<p>
-  <strong>Def region:</strong>
-  <%= @user.def_region %>
-</p>
-
-<p>
-  <strong>Def nat area:</strong>
-  <%= @user.def_nat_area %>
-</p>
-
-<p>
-  <strong>Auth schools:</strong>
-  <%= @user.auth_schools %>
-</p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
