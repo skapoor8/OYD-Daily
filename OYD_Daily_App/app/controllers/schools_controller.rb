@@ -10,6 +10,19 @@ class SchoolsController < ApplicationController
   # GET /schools/1
   # GET /schools/1.json
   def show
+    @students = Student.where(school_id: @school.id)
+    student_ids = []
+    @students.each do  |s|
+      student_ids << s
+    end
+    @todays_attendance = Attendance.where(when: params[:date].to_date.beginning_of_day..params[:date].to_date.end_of_day, student_id: student_ids)
+    student_ids = []
+    @todays_attendance.each do  |a|
+      logger.debug a
+      student_ids << a.student_id
+    end
+    logger.debug student_ids
+    @students_present = Student.where(id: student_ids)
   end
 
   # GET /schools/new

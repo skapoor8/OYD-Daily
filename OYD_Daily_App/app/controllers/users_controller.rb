@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :select_school]
-  protect_from_forgery except: :select_school
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :select_school, :select_date]
+  protect_from_forgery except: [:select_school, :select_date]
 
   # GET /users
   # GET /users.json
@@ -11,13 +11,64 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+
     @schools = School.all
+    if params[:prev_date].nil?
+      params[:start_date] = Date.today
+    else
+      params[:start_date] = params[:prev_date]
+    end
     @selected = @schools.first
+    params[:selected] = @selected.id
+    @students = Student.where(school_id: @selected.id)
+    student_ids = []
+    @students.each do |s|
+      student_ids << s.id
+    end
+    @attendance = Attendance.where(when: Date.today.beginning_of_month .. Date.today.end_of_month, student_id: student_ids)
+    #@attendance.each do |a|
+    #  logger.debug a.when
+    #end
+    #logger.debug "did it"
   end
 
   def select_school
     @schools = School.all
     @selected = School.find(params[:selected])
+    params[:start_date] = params[:prev_date]
+    logger.debug "=========="
+    logger.debug params[:start_date]
+    logger.debug "=========="
+    #@attendance = Attendance.where(when: Date.today.beginning_of_month .. Date.today.end_of_month)
+    @students = Student.where(school_id: @selected.id)
+    student_ids = []
+    @students.each do |s|
+      student_ids << s.id
+    end
+    @attendance = Attendance.where(when: Date.today.beginning_of_month .. Date.today.end_of_month, student_id: student_ids)
+    respond_to do |format|
+      format.js 
+    end
+  end
+
+  def select_date
+    @schools = School.all
+    @selected = School.find(params[:selected])
+    #@attendance = Attendance.where(when: Date.today.beginning_of_month .. Date.today.end_of_month)
+
+    @students = Student.where(school_id: @selected.id)
+    student_ids = []
+    @students.each do |s|
+      student_ids << s.id
+    end
+    @attendance = Attendance.where(when: Date.today.beginning_of_month .. Date.today.end_of_month, student_id: student_ids)
+
+
+    if params[:dir] == "forward" 
+      params[:start_date] = params[:prev_date].to_date.next_month
+    elsif params[:dir] == "backward"
+      params[:start_date] = params[:prev_date].to_date.prev_month
+    end
 
     respond_to do |format|
       format.js 

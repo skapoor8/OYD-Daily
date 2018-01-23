@@ -7,5 +7,6 @@ Rails.application.routes.draw do
 
   root 'application#hello'
   get 'user/:id/select_school', to: "users#select_school", as: 'select_school'
+  get 'user/:id/select_date', to: "users#select_date", as: 'select_date'
   
 end

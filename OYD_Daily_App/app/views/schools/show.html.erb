@@ -1,69 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>School name:</strong>
-  <%= @school.school_name %>
-</p>
+<%= link_to "Back", "#" %> | 
+<%= link_to "School Open", "#" %> or
+<%= link_to "School Closed", "#" %>
 
-<p>
-  <strong>Main ins:</strong>
-  <%= @school.main_ins_id %>
-</p>
 
-<p>
-  <strong>School region:</strong>
-  <%= @school.school_region %>
-</p>
+<table>
+    <tr>
+      <th>Active:</th>
+      <th>Attendance:</th>
+      <th>Information:</th>
+      <th>New Students:</th>
+      <th>New Courses:</th>
+      <th>Tests:</th>
+      <th>Drops:</th>
+    </tr>
+</table>
 
-<p>
-  <strong>Street:</strong>
-  <%= @school.street %>
-</p>
+<div id="attendance">
+  <strong> Attendance: </strong>
+  <ol>
+    <% @students_present.each do |s| %>
+        <li><%= s.first_name + " " + s.last_name %></li>
+    <% end %>
+  </ol>
+</div>
 
-<p>
-  <strong>Street2:</strong>
-  <%= @school.street2 %>
-</p>
 
-<p>
-  <strong>City:</strong>
-  <%= @school.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @school.state %>
-</p>
-
-<p>
-  <strong>Postal code:</strong>
-  <%= @school.postal_code %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @school.country %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @school.email %>
-</p>
-
-<p>
-  <strong>School phone:</strong>
-  <%= @school.school_phone %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @school.status %>
-</p>
-
-<p>
-  <strong>Standing:</strong>
-  <%= @school.standing %>
-</p>
-
-<%= link_to 'Edit', edit_school_path(@school) %> |
-<%= link_to 'Back', schools_path %>
