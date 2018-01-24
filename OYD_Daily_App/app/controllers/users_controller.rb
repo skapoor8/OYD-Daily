@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     @students.each do |s|
       student_ids << s.id
     end
-    @attendance = Attendance.where(when: Date.today.beginning_of_month .. Date.today.end_of_month, student_id: student_ids)
+    @attendance = Attendance.where(when: params[:start_date].to_date.beginning_of_month .. params[:start_date].to_date.end_of_month, student_id: student_ids)
     #@attendance.each do |a|
     #  logger.debug a.when
     #end
