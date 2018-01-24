@@ -19,5 +19,5 @@
     <% @attendance.each do |a| %>
       <% sum = sum + 1 if a.when.between?(date.beginning_of_day,date.end_of_day) %>
     <% end %>
-    <%= link_to sum, school_path(id: params[:selected], prev_date: params[:start_date], date: date, selected: @selected) %>
+    <%= link_to sum, school_path(id: params[:selected], prev_date: params[:start_date], date: date, user: params[:id]) %>
   <% end %>

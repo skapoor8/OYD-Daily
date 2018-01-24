@@ -18,7 +18,11 @@ class UsersController < ApplicationController
     else
       params[:start_date] = params[:prev_date]
     end
-    @selected = @schools.first
+    if params[:selected].nil?
+      @selected = @schools.first
+    else
+      @selected = @schools.find(params[:selected])
+    end
     params[:selected] = @selected.id
     @students = Student.where(school_id: @selected.id)
     student_ids = []

@@ -1,5 +1,5 @@
 class SchoolsController < ApplicationController
-  before_action :set_school, only: [:show, :edit, :update, :destroy]
+  before_action :set_school, only: [:show, :edit, :update, :destroy, :mark_attendance]
 
   # GET /schools
   # GET /schools.json
@@ -23,6 +23,15 @@ class SchoolsController < ApplicationController
     end
     logger.debug student_ids
     @students_present = Student.where(id: student_ids)
+    @students_absent = @students.where.not(id: student_ids)
+    @students_absent.each do |s|
+      logger.debug s.first_name
+    end
+    @date = params[:date]
+    @user_id = params[:user]
+    logger.debug ">>>>>>>>>"
+    logger.debug @user_id
+    logger.debug ">>>>>>>>>"
   end
 
   # GET /schools/new
@@ -72,6 +81,19 @@ class SchoolsController < ApplicationController
       format.html { redirect_to schools_url, notice: 'School was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def mark_attendance
+    logger.debug "========"
+    logger.debug params[:date]
+    logger.debug "========"
+    params[:present].each do |s_id|
+      attendance = Attendance.new
+      attendance.student_id = s_id.to_i
+      attendance.when = params[:date].to_date
+      attendance.save
+    end
+    redirect_to school_path(@school, date: params[:date].to_date, user: params[:user].to_i)
   end
 
   private
