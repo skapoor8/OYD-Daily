@@ -17,13 +17,14 @@
     </tr>
 </table>
 
-<div id="attendance">
+<div id="attendance"> 
+  <br>
   <strong> Attendance: </strong>
   <%= form_tag(mark_attendances_path(@school), method: "get") do %>
     <%= select_tag :present, options_from_collection_for_select(@students_absent, "id", "first_name") , multiple: true%>
     <%= hidden_field_tag :user, @user_id.to_s %>
     <%= hidden_field_tag :date, @date.to_str %>
-
+    <br>
     <%= submit_tag("Mark Present") %>
   <% end %>
   <ol>
@@ -31,6 +32,8 @@
         <li><%= s.first_name + " " + s.last_name %></li>
     <% end %>
   </ol>
+  <br>
+  <%= button_to "New Student", "#" %>
 </div>
 
 

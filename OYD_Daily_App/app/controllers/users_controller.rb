@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :select_school, :select_date]
+  before_action :set_user, :require_login, only: [:show, :edit, :update, :destroy, :select_school, :select_date]
   protect_from_forgery except: [:select_school, :select_date]
 
   # GET /users
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
     @students.each do |s|
       student_ids << s.id
     end
-    @attendance = Attendance.where(when: Date.today.beginning_of_month .. Date.today.end_of_month, student_id: student_ids)
+    @attendance = Attendance.where(when: params[:prev_date].to_date.beginning_of_month .. params[:prev_date].to_date.end_of_month, student_id: student_ids)
     respond_to do |format|
       format.js 
     end
@@ -65,7 +65,7 @@ class UsersController < ApplicationController
     @students.each do |s|
       student_ids << s.id
     end
-    @attendance = Attendance.where(when: Date.today.beginning_of_month .. Date.today.end_of_month, student_id: student_ids)
+    
 
 
     if params[:dir] == "forward" 
@@ -73,6 +73,8 @@ class UsersController < ApplicationController
     elsif params[:dir] == "backward"
       params[:start_date] = params[:prev_date].to_date.prev_month
     end
+
+    @attendance = Attendance.where(when: params[:start_date].beginning_of_month .. params[:start_date].end_of_month, student_id: student_ids)
 
     respond_to do |format|
       format.js 
@@ -96,7 +98,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to root_url, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -137,6 +139,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :oyd_id, :access_level, :first_name, :last_name, :def_school, :def_region, :def_nat_area, :auth_schools, :title, :email)
+      params.require(:user).permit(:name, :oyd_id, :access_level, :first_name, :last_name, :def_school, :def_region, :def_nat_area, :auth_schools, :title, :email, :password, :password_confirmation)
     end
 end
