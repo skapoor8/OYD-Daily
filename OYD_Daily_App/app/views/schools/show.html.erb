@@ -23,7 +23,7 @@
   <%= form_tag(mark_attendances_path(@school), method: "get") do %>
     <%= select_tag :present, options_from_collection_for_select(@students_absent, "id", "first_name") , multiple: true%>
     <%= hidden_field_tag :user, @user_id.to_s %>
-    <%= hidden_field_tag :date, @date.to_str %>
+    <%= hidden_field_tag :date, @date.to_s %>
     <br>
     <%= submit_tag("Mark Present") %>
   <% end %>
@@ -33,7 +33,24 @@
     <% end %>
   </ol>
   <br>
-  <%= button_to "New Student", "#" %>
+
+  <% new_registrations = NewStudentEvent.where(signup_date: @date.beginning_of_day..@date.end_of_day) %>
+  <% if !new_registrations.nil? %>
+    <strong>New Registrations</strong>
+    <ol>
+    <% new_registrations.each do |n| %>
+      <% s = Student.find(n.student_id) %>
+      <li><%= s.first_name %></li>
+    <% end %>
+    </ol>
+  <% end %>
+
+  <%= button_to "New Student", register_student_path(date: @date,user: @user_id) %>
+  <%= button_to "New Information", "#" %>
+  <%= button_to "New Test", "#" %>
+  <%= button_to "New MLT Lesson", "#" %>
+  <%= button_to "New Drop", "#" %>
+
 </div>
 
 

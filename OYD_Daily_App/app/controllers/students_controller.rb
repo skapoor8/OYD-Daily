@@ -15,6 +15,10 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = Student.new
+    if params[:source] == "register_student"
+      @student.school_id = params[:school_id].to_i
+    end
+
   end
 
   # GET /students/1/edit
@@ -25,14 +29,33 @@ class StudentsController < ApplicationController
   # POST /students.json
   def create
     @student = Student.new(student_params)
-
+    logger.debug "<<<<<<"
+    logger.debug params[:source]
+    logger.debug "<<<<<<"
     respond_to do |format|
-      if @student.save
-        format.html { redirect_to @student, notice: 'Student was successfully created.' }
-        format.json { render :show, status: :created, location: @student }
-      else
-        format.html { render :new }
-        format.json { render json: @student.errors, status: :unprocessable_entity }
+      if params[:source] == "register_student"
+        if @student.save
+          school = School.find(params[:school_id].to_i)
+          reg = NewStudentEvent.new
+          reg.student_id = @student.id
+          reg.signup_date = params[:date].to_date
+          reg.save
+          logger.debug "<<<<<<>>>>>>>"
+          logger.debug params[:date]
+          logger.debug "<<<<<<>>>>>>>"
+          format.html {redirect_to school_url(id: params[:school_id], date: params[:date].to_date, source: "register_student", user: params[:user]), notice: 'Student was successfully registered.'}
+        else
+          format.html { render :new }
+          format.json { render json: @student.errors, status: :unprocessable_entity }
+        end
+      else 
+        if @student.save
+          format.html { redirect_to @student, notice: 'Student was successfully created.' }
+          format.json { render :show, status: :created, location: @student }
+        else
+          format.html { render :new }
+          format.json { render json: @student.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -60,6 +83,7 @@ class StudentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -169,4 +169,10 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+
+  <%= hidden_field_tag :user, params[:user] %>
+  <%= hidden_field_tag :date, params[:date] %>
+  <%= hidden_field_tag :source, params[:source] %>
+  <%= hidden_field_tag :school_id, params[:school_id] %>
+  
 <% end %>

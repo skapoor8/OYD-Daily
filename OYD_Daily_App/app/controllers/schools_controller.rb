@@ -1,5 +1,5 @@
 class SchoolsController < ApplicationController
-  before_action :set_school, only: [:show, :edit, :update, :destroy, :mark_attendance]
+  before_action :set_school, only: [:show, :edit, :update, :destroy, :mark_attendance, :register_student]
 
   # GET /schools
   # GET /schools.json
@@ -27,7 +27,7 @@ class SchoolsController < ApplicationController
     @students_absent.each do |s|
       logger.debug s.first_name
     end
-    @date = params[:date]
+    @date = params[:date].to_date
     @user_id = params[:user]
     logger.debug ">>>>>>>>>"
     logger.debug @user_id
@@ -94,6 +94,10 @@ class SchoolsController < ApplicationController
       attendance.save
     end
     redirect_to school_path(@school, date: params[:date].to_date, user: params[:user].to_i)
+  end
+
+  def register_student
+    redirect_to new_student_path(school_id: @school.id, date: params[:date].to_date, source: "register_student", user: params[:user])
   end
 
   private
