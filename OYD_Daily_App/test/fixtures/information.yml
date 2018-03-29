@@ -1,0 +1,49 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  school_id: 1
+  date_visited: 2018-02-12 16:35:46
+  first_name: MyText
+  last_name: MyText
+  age: 1
+  birthdate: 2018-02-12 16:35:46
+  class_group: MyText
+  street: MyText
+  street2: MyText
+  city: MyText
+  state: MyText
+  postal_code: MyText
+  country: MyText
+  email: MyText
+  mobile_phone: MyText
+  home_phone: MyText
+  parental_contact: MyText
+  how_found: MyText
+  occupation: MyText
+  interest: MyText
+  body_issues: MyText
+  notes: MyText
+
+two:
+  school_id: 1
+  date_visited: 2018-02-12 16:35:46
+  first_name: MyText
+  last_name: MyText
+  age: 1
+  birthdate: 2018-02-12 16:35:46
+  class_group: MyText
+  street: MyText
+  street2: MyText
+  city: MyText
+  state: MyText
+  postal_code: MyText
+  country: MyText
+  email: MyText
+  mobile_phone: MyText
+  home_phone: MyText
+  parental_contact: MyText
+  how_found: MyText
+  occupation: MyText
+  interest: MyText
+  body_issues: MyText
+  notes: MyText

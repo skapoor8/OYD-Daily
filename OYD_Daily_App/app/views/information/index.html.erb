@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Information</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>School</th>
+      <th>Date visited</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Age</th>
+      <th>Birthdate</th>
+      <th>Class group</th>
+      <th>Street</th>
+      <th>Street2</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Postal code</th>
+      <th>Country</th>
+      <th>Email</th>
+      <th>Mobile phone</th>
+      <th>Home phone</th>
+      <th>Parental contact</th>
+      <th>How found</th>
+      <th>Occupation</th>
+      <th>Interest</th>
+      <th>Body issues</th>
+      <th>Notes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @information.each do |information| %>
+      <tr>
+        <td><%= information.school_id %></td>
+        <td><%= information.date_visited %></td>
+        <td><%= information.first_name %></td>
+        <td><%= information.last_name %></td>
+        <td><%= information.age %></td>
+        <td><%= information.birthdate %></td>
+        <td><%= information.class_group %></td>
+        <td><%= information.street %></td>
+        <td><%= information.street2 %></td>
+        <td><%= information.city %></td>
+        <td><%= information.state %></td>
+        <td><%= information.postal_code %></td>
+        <td><%= information.country %></td>
+        <td><%= information.email %></td>
+        <td><%= information.mobile_phone %></td>
+        <td><%= information.home_phone %></td>
+        <td><%= information.parental_contact %></td>
+        <td><%= information.how_found %></td>
+        <td><%= information.occupation %></td>
+        <td><%= information.interest %></td>
+        <td><%= information.body_issues %></td>
+        <td><%= information.notes %></td>
+        <td><%= link_to 'Show', information %></td>
+        <td><%= link_to 'Edit', edit_information_path(information) %></td>
+        <td><%= link_to 'Destroy', information, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Information', new_information_path %>

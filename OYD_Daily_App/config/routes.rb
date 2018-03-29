@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :information
   get 'sessions/new'
 
   resources :attendances
@@ -6,6 +7,7 @@ Rails.application.routes.draw do
   resources :students
   resources :users
   resources :sessions
+  resources :informations
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'sessions#new'
@@ -15,5 +17,6 @@ Rails.application.routes.draw do
   post 'school/:id/register_student', to: "schools#register_student", as: 'register_student'
   get "log_in" => "sessions#new", :as => "log_in"
   get "log_out" => "sessions#destroy", :as =>"log_out"
+  post 'school/:id/add_information', to: "schools#add_information", as: 'add_information'
   
 end

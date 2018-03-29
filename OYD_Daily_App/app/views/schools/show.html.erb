@@ -45,8 +45,8 @@
     </ol>
   <% end %>
 
-  <%= button_to "New Student", register_student_path(date: @date,user: @user_id) %>
-  <%= button_to "New Information", "#" %>
+  <%= button_to "New Student", register_student_path(date: @date, user: @user_id) %>
+  <%= button_to "New Information", add_information_path(date: @date, user: @user_ids, school: @school.id) %>
   <%= button_to "New Test", "#" %>
   <%= button_to "New MLT Lesson", "#" %>
   <%= button_to "New Drop", "#" %>

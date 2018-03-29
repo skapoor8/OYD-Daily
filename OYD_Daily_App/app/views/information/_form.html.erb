@@ -1,0 +1,132 @@
+<%= form_with(model: information, local: true) do |form| %>
+  <% if information.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(information.errors.count, "error") %> prohibited this information from being saved:</h2>
+
+      <ul>
+      <% information.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :school_id %>
+    <%= form.number_field :school_id, id: :information_school_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_visited %>
+    <%= form.datetime_select :date_visited, id: :information_date_visited %>
+  </div>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_area :first_name, id: :information_first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_area :last_name, id: :information_last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :age %>
+    <%= form.number_field :age, id: :information_age %>
+  </div>
+
+  <div class="field">
+    <%= form.label :birthdate %>
+    <%= form.datetime_select :birthdate, id: :information_birthdate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :class_group %>
+    <%= form.text_area :class_group, id: :information_class_group %>
+  </div>
+
+  <div class="field">
+    <%= form.label :street %>
+    <%= form.text_area :street, id: :information_street %>
+  </div>
+
+  <div class="field">
+    <%= form.label :street2 %>
+    <%= form.text_area :street2, id: :information_street2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_area :city, id: :information_city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :state %>
+    <%= form.text_area :state, id: :information_state %>
+  </div>
+
+  <div class="field">
+    <%= form.label :postal_code %>
+    <%= form.text_area :postal_code, id: :information_postal_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.text_area :country, id: :information_country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_area :email, id: :information_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mobile_phone %>
+    <%= form.text_area :mobile_phone, id: :information_mobile_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :home_phone %>
+    <%= form.text_area :home_phone, id: :information_home_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :parental_contact %>
+    <%= form.text_area :parental_contact, id: :information_parental_contact %>
+  </div>
+
+  <div class="field">
+    <%= form.label :how_found %>
+    <%= form.text_area :how_found, id: :information_how_found %>
+  </div>
+
+  <div class="field">
+    <%= form.label :occupation %>
+    <%= form.text_area :occupation, id: :information_occupation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :interest %>
+    <%= form.text_area :interest, id: :information_interest %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body_issues %>
+    <%= form.text_area :body_issues, id: :information_body_issues %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes, id: :information_notes %>
+  </div>
+
+  <%= hidden_field_tag :user, params[:user] %>
+  <%= hidden_field_tag :date, params[:date] %>
+  <%= hidden_field_tag :source, params[:source] %>
+  <%= hidden_field_tag :school_id, params[:school_id] %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

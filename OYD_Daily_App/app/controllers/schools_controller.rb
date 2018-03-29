@@ -1,5 +1,5 @@
 class SchoolsController < ApplicationController
-  before_action :set_school, only: [:show, :edit, :update, :destroy, :mark_attendance, :register_student]
+  before_action :set_school, only: [:show, :edit, :update, :destroy, :mark_attendance, :register_student, :add_information]
 
   # GET /schools
   # GET /schools.json
@@ -98,6 +98,11 @@ class SchoolsController < ApplicationController
 
   def register_student
     redirect_to new_student_path(school_id: @school.id, date: params[:date].to_date, source: "register_student", user: params[:user])
+  end
+
+  def add_information
+    logger.debug "in school_C#new_information\n"
+    redirect_to new_information_path(school_id: @school.id, date: params[:date].to_date, source: "add_information", user: params[:user])
   end
 
   private
