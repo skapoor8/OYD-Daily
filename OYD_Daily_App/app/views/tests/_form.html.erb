@@ -1,0 +1,49 @@
+<%= form_with(model: test, local: true) do |form| %>
+  <% if test.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(test.errors.count, "error") %> prohibited this test from being saved:</h2>
+
+      <ul>
+      <% test.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :student %>
+    <%= form.collection_select :student_id, @students, :id, :full_name %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :test_date %>
+    <%= form.date_select :test_date, default: @date %>
+  </div>
+
+  <!-- NOTE - must make default based on selected student's rank -->
+  <div class="field">
+    <%= form.label :rank_tested %>
+    <%= form.select :rank_tested, options_for_select( 
+      "1st Section": "1S", 
+      "2nd Section": "2S", 
+      "3rd Section": "3S", 
+      "4th Section": "4S", 
+      "5th Section": "5S", 
+      "6th Section": "6S", 
+      "1st Degree": "1D", 
+      "2nd Degree": "2D", 
+      "3rd Degree": "3D", 
+      "4th Degree": "4D"), include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pass_or_fail? %>
+    <%= form.select :pass_fail, options_for_select("Pass": true, "Fail": false), include_blank: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

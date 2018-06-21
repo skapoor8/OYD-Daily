@@ -35,21 +35,61 @@
   <br>
 
   <% new_registrations = NewStudentEvent.where(signup_date: @date.beginning_of_day..@date.end_of_day) %>
-  <% if !new_registrations.nil? %>
-    <strong>New Registrations</strong>
+  <% if new_registrations.none? %>
+    <strong><%= "No New Registrations" %></strong><br>
+  <% else %>
+    <strong><%= "New Students" %></strong>
+    <%= logger.debug new_registrations %>
     <ol>
     <% new_registrations.each do |n| %>
       <% s = Student.find(n.student_id) %>
-      <li><%= s.first_name %></li>
+      <li><%= s.id %></li>
     <% end %>
     </ol>
   <% end %>
 
-  <%= button_to "New Student", register_student_path(date: @date, user: @user_id) %>
-  <%= button_to "New Information", add_information_path(date: @date, user: @user_ids, school: @school.id) %>
-  <%= button_to "New Test", "#" %>
-  <%= button_to "New MLT Lesson", "#" %>
-  <%= button_to "New Drop", "#" %>
+  <% new_informations = Information.where(date_visited: @date.beginning_of_day..@date.end_of_day) %>
+  <% if new_informations.none? %>
+    <strong>No New Informations</strong><br>
+  <% else %>
+    <strong>New Informations</strong>
+    <ol>
+    <% new_informations.each do |n| %>
+      <li><%= n.first_name + " " + n.last_name %></li>
+    <% end %>
+    </ol>
+  <% end %>
+
+  <% tests = Test.where(test_date:@date.beginning_of_day..@date.end_of_day) %>
+  <% if not tests.none? %>
+    <% passes = tests.where(pass_fail: true) %>
+    <% fails = tests.where(pass_fail: false) %>
+    
+    <% if not passes.none? %>
+      <% passes.each do |t| %>
+      <strong> Tests Passed </strong>
+      <ol>
+        <li> <%= Student.find(t.student_id).first_name + " passed the test for " + t.rank_tested %> </li>
+      </ol>
+      <% end %>
+    <% end %>
+    
+    <% if not fails.none? %>
+      <% fails.each do |t| %>
+      <strong> Tests Passed </strong>
+      <ol>
+        <li> <%= Student.find(t.student_id).first_name + " failed the test for " + t.rank_tested %> </li>
+      </ol>
+      <% end %>
+    <% end %>
+
+  <% end %>
+
+  <%= link_to "New Student", register_student_path(date: @date, user: @user_id) %>
+  <%= link_to "New Information", add_information_path(date: @date, user: @user_ids, school: @school.id) %>
+  <%= link_to "New Test", new_test_path(date: @date, school: @school.id) %>
+  <%= link_to "New MLT Lesson", "#" %>
+  <%= link_to "New Drop", "#" %>
 
 </div>
 

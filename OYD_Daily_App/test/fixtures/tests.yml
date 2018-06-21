@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student: one
+  oyd_id: 1
+  test_date: 2018-06-21
+  rank_tested: MyString
+  pass_fail: false
+
+two:
+  student: two
+  oyd_id: 1
+  test_date: 2018-06-21
+  rank_tested: MyString
+  pass_fail: false

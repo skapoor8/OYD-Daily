@@ -21,17 +21,10 @@ class SchoolsController < ApplicationController
       logger.debug a
       student_ids << a.student_id
     end
-    logger.debug student_ids
     @students_present = Student.where(id: student_ids)
     @students_absent = @students.where.not(id: student_ids)
-    @students_absent.each do |s|
-      logger.debug s.first_name
-    end
     @date = params[:date].to_date
     @user_id = params[:user]
-    logger.debug ">>>>>>>>>"
-    logger.debug @user_id
-    logger.debug ">>>>>>>>>"
   end
 
   # GET /schools/new

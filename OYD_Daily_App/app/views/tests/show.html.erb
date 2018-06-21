@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @test.student %>
+</p>
+
+<p>
+  <strong>Oyd:</strong>
+  <%= @test.oyd_id %>
+</p>
+
+<p>
+  <strong>Test date:</strong>
+  <%= @test.test_date %>
+</p>
+
+<p>
+  <strong>Rank tested:</strong>
+  <%= @test.rank_tested %>
+</p>
+
+<p>
+  <strong>Pass fail:</strong>
+  <%= @test.pass_fail %>
+</p>
+
+<%= link_to 'Edit', edit_test_path(@test) %> |
+<%= link_to 'Back', tests_path %>
