@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student: one
+  mlt_date: 2018-06-21
+  course: 1
+  lesson: 1
+
+two:
+  student: two
+  mlt_date: 2018-06-21
+  course: 1
+  lesson: 1

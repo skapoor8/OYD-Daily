@@ -18,8 +18,6 @@ class TestsController < ApplicationController
     @school = School.find(params[:school])
     @students = @school.students
     @date = params[:date].to_date
-    logger.debug "@date = "
-    logger.debug @date
   end
 
   # GET /tests/1/edit

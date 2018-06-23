@@ -1,0 +1,37 @@
+<%= form_with(model: mlt_attendance, local: true) do |form| %>
+  <% if mlt_attendance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mlt_attendance.errors.count, "error") %> prohibited this mlt_attendance from being saved:</h2>
+
+      <ul>
+      <% mlt_attendance.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :student_id %>
+    <%= form.collection_select :student_id, @students, :id, :full_name, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mlt_date %>
+    <%= form.date_select :mlt_date, id: :mlt_attendance_mlt_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :course %>
+    <%= form.number_field :course, id: :mlt_attendance_course %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lesson %>
+    <%= form.number_field :lesson, id: :mlt_attendance_lesson %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

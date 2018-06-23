@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @mlt_attendance.student %>
+</p>
+
+<p>
+  <strong>Mlt date:</strong>
+  <%= @mlt_attendance.mlt_date %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @mlt_attendance.course %>
+</p>
+
+<p>
+  <strong>Lesson:</strong>
+  <%= @mlt_attendance.lesson %>
+</p>
+
+<%= link_to 'Edit', edit_mlt_attendance_path(@mlt_attendance) %> |
+<%= link_to 'Back', mlt_attendances_path %>

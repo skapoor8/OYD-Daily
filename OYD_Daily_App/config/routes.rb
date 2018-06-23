@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :mlt_attendances
   resources :tests
   resources :information
   get 'sessions/new'

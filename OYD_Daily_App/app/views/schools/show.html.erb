@@ -83,12 +83,24 @@
       <% end %>
     <% end %>
 
+    <% @Mlt = MltAttendance.all %>
+    <% if @Mlt.none? %>
+      <strong> No MLT Attendances </strong><br>
+    <% else %>
+      <strong>MLT Attendances</strong>
+      <ol>
+      <% @Mlt.each do |m| %>
+        <li><%= Student.find(m.student_id).first_name + " attended course no. " + m.course.to_s + " lesson " + m.lesson.to_s %></li>
+      <% end %>
+      </ol>
+    <% end %>
+
   <% end %>
 
   <%= link_to "New Student", register_student_path(date: @date, user: @user_id) %>
   <%= link_to "New Information", add_information_path(date: @date, user: @user_ids, school: @school.id) %>
   <%= link_to "New Test", new_test_path(date: @date, school: @school.id) %>
-  <%= link_to "New MLT Lesson", "#" %>
+  <%= link_to "New MLT Lesson", new_mlt_attendance_path(date: @date, school: @school.id) %>
   <%= link_to "New Drop", "#" %>
 
 </div>

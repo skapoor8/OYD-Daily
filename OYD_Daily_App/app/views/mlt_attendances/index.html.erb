@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Mlt Attendances</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Student</th>
+      <th>Mlt date</th>
+      <th>Course</th>
+      <th>Lesson</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mlt_attendances.each do |mlt_attendance| %>
+      <tr>
+        <td><%= mlt_attendance.student %></td>
+        <td><%= mlt_attendance.mlt_date %></td>
+        <td><%= mlt_attendance.course %></td>
+        <td><%= mlt_attendance.lesson %></td>
+        <td><%= link_to 'Show', mlt_attendance %></td>
+        <td><%= link_to 'Edit', edit_mlt_attendance_path(mlt_attendance) %></td>
+        <td><%= link_to 'Destroy', mlt_attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mlt Attendance', new_mlt_attendance_path %>

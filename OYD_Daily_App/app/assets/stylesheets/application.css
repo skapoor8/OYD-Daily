@@ -11,5 +11,35 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
+ *= require semantic_ui/semantic_ui
  *= require_self
  */
+
+#logInBox {
+	width: 30%;
+	height: 54%;
+	vertical-align: center;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 15%;
+	margin-bottom: 15%;
+
+}
+
+#emailInput, #passwordInput {
+	width: 100%;
+	margin-left: auto;
+}
+
+#LogInButton {
+	width: 100%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#logInImage {
+	width: 40%;
+	margin-left: 30%;
+	padding-top: 3%;
+}
