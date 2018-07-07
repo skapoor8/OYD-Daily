@@ -23,6 +23,8 @@
 	height: 4vw;
 	border-radius: 0;
 	position: fixed;
+	margin-left: -2.4vw;
+	margin-top: -2.4vw;
 	width: 100vw;
 	z-index: 1;
 }
