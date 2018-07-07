@@ -1,15 +1,71 @@
 <p id="notice"><%= notice %></p>
 
+<div id="dashboard">
+
 <div id="school-selector">
   <%= render partial: "school_selector" %>
 </div>
 
-<br>
+<table id="monthly-stats">
+    <tr>
+      <th id="active">
+        <div class="ui big label">
+          <div class="detail">0</div>
+        </div><br>
+        ACTIVE 
+      </th>
+      <th>
+        <div class="ui big label">
+          <div class="detail">0</div>
+        </div><br>
+        ATTENDANCE
+      </th>
+      <th>
+        <div class="ui big label">
+          <div class="detail">0</div>
+        </div><br>
+        INFOS
+      </th>
+      <th>
+        <div class="ui big label">
+          <div class="detail">0</div>
+        </div><br>
+        NEW STUDENTS
+      </th>
+      <th>
+        <div class="ui big label">
+          <div class="detail">0</div>
+        </div><br>
+        NEW COURSES
+      </th>
+      <th>
+        <div class="ui big label">
+          <div class="detail">0</div>
+        </div><br>
+        TESTS
+      </th>
+      <th>
+        <div class="ui big label">
+          <div class="detail">0</div>
+        </div><br>
+        DROPS
+      </th>
+    </tr>
+  </table>
+
+ </div>
+
+<br><br><br><br>
+<div class="ui divider"></div>
+<br><br>
+
+
 
 <div id="month-data">
   <%= render partial: "month_data" %>
 
 </div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<br><br><br><br>
+<%# link_to 'Edit', edit_user_path(@user) %> |
+<%# link_to 'Back', users_path %>

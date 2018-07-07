@@ -36,7 +36,7 @@ gem "simple_calendar", "~> 2.0"
 gem 'bcrypt', :require => 'bcrypt'
 
 # install semantic
-gem 'less-rails-semantic_ui', '~> 2.3.1'
+gem 'less-rails-semantic_ui'
 gem 'autoprefixer-rails'
 gem 'therubyracer'
 gem 'sprockets', '3.6.3'
@@ -63,6 +63,7 @@ end
 group :production do
   gem 'pg', '0.20.0'
   gem 'mysql2', '~> 0.3.18'
+  gem 'rails_12factor'
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

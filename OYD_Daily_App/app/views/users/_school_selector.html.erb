@@ -1,7 +1,18 @@
-  <% @schools.each do |s| %>
-    <% if s == @selected %>
-      <%= ">>" + s.school_name + "<<" %>
-    <% else %>
-      <%= link_to s.school_name, select_school_path(@user, format: :js, selected: s, prev_date: params[:start_date]), method: :get, remote: true %>
-    <% end %>
-  <% end %>
+  
+  <div class="ui selection dropdown">
+	  <input type="hidden" name="School">
+	  <i class="dropdown icon"></i>
+	  <div class="default text"><%= @selected.school_name %></div>
+	  <div class="menu" id="school-options">
+		  <% @schools.each do |s| %>
+		 
+		      	
+		      	<%= link_to select_school_path(@user, format: :js, selected: s, prev_date: params[:start_date]), method: :get, remote: true do %>
+		      		<div class="item"><%= s.school_name%></div>
+		      	<% end %>
+	
+
+		  <% end %>
+	  </div>
+  </div>
+

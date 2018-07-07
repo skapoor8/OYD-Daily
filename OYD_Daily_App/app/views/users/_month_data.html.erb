@@ -1,23 +1,22 @@
-<table>
-    <tr>
-      <th>Active:</th>
-      <th>Attendance:</th>
-      <th>Information:</th>
-      <th>New Students:</th>
-      <th>New Courses:</th>
-      <th>Tests:</th>
-      <th>Drops:</th>
-    </tr>
-  </table>
 
-  <%= link_to "<<Back", select_date_path(@user, format: :js, selected: @selected, prev_date: params[:start_date], dir: "backward"), method: :get, remote: true%>
-  <%= link_to "Next>>", select_date_path(@user, format: :js, selected: @selected, prev_date: params[:start_date], dir: "forward"), method: :get, remote: true %>
+  <div id="prev-month-button">
+  <%= link_to '<i class="angle left icon"></i>'.html_safe, select_date_path(@user, format: :js, selected: @selected, prev_date: params[:start_date], dir: "backward"), method: :get, remote: true %>
+  </div>
+
+  <div id="next-month-button">
+  <%= link_to '<i class="angle right icon"></i>'.html_safe, select_date_path(@user, format: :js, selected: @selected, prev_date: params[:start_date], dir: "forward"), method: :get, remote: true, id: "#next-month-button" %>
+  </div>
 
   <%= month_calendar do |date| %>
-    <%= date.day %>
+    <br><%= date.day %><br>
+
     <% sum = 0 %>
     <% @attendance.each do |a| %>
       <% sum = sum + 1 if a.when.between?(date.beginning_of_day,date.end_of_day) %>
     <% end %>
-    <%= link_to sum, school_path(id: params[:selected], prev_date: params[:start_date], date: date, user: params[:id]) %>
+    <% if sum == 0 %>
+      <%= link_to " ", school_path(id: params[:selected], prev_date: params[:start_date], date: date, user: params[:id]), class: "ui massive red circular label" %>
+    <% else %>
+      <%= link_to sum, school_path(id: params[:selected], prev_date: params[:start_date], date: date, user: params[:id]), class: "ui massive blue circular label" %>
+    <% end %>
   <% end %>

@@ -1,21 +1,66 @@
 <p id="notice"><%= notice %></p>
+<div class="ui secondary segment" id="data-entry-nav">
+  <div><%= link_to '<i class="angle left icon"> </i>'.html_safe, user_path(params[:user], selected: @school.id, prev_date: params[:date]), class: "ui large blue circular label", id: "data-entry-back-btn"%> </div>
+  <div id="data-entry-date"><%= params[:date].to_date.strftime("%B %d, %Y") %> </div>
+  <div id="school-open-or-closed" class="ui buttons"><%= button_to "School Open", "#", class: "ui green button" %> 
+    <div class="or"></div>
+  <%= button_to "School Closed", "#", class: "ui button" %></div>
+</div>
 
-<%= link_to "Back", user_path(params[:user], selected: @school.id, prev_date: params[:date]) %> | 
-<%= link_to "School Open", "#" %> or
-<%= link_to "School Closed", "#" %>
+<div id="daily-dashboard">
 
-
-<table>
+<table id="daily-stats">
     <tr>
-      <th>Active:</th>
-      <th>Attendance:</th>
-      <th>Information:</th>
-      <th>New Students:</th>
-      <th>New Courses:</th>
-      <th>Tests:</th>
-      <th>Drops:</th>
+      <th id="active">
+        <div class="ui big label">
+          <div class="detail">0</div>
+        </div><br>
+        ACTIVE 
+      </th>
+      <th>
+        <div class="ui big label">
+          <div class="detail">0</div>
+        </div><br>
+        ATTENDANCE
+      </th>
+      <th>
+        <div class="ui big label">
+          <div class="detail">0</div>
+        </div><br>
+        INFOS
+      </th>
+      <th>
+        <div class="ui big label">
+          <div class="detail">0</div>
+        </div><br>
+        NEW STUDENTS
+      </th>
+      <th>
+        <div class="ui big label">
+          <div class="detail">0</div>
+        </div><br>
+        NEW COURSES
+      </th>
+      <th>
+        <div class="ui big label">
+          <div class="detail">0</div>
+        </div><br>
+        TESTS
+      </th>
+      <th>
+        <div class="ui big label">
+          <div class="detail">0</div>
+        </div><br>
+        DROPS
+      </th>
     </tr>
-</table>
+  </table>
+
+</div>
+
+<br><br><br>
+<div class="ui divider"></div>
+<br>
 
 <div id="attendance"> 
   <br>

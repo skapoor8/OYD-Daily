@@ -1,2 +1,6 @@
 $("#school-selector").html("<%= escape_javascript(render partial: 'school_selector')%>")
 $("#month-data").html("<%= escape_javascript(render partial: 'month_data')%>")
+
+$(function(){
+        $('.ui.dropdown').dropdown();
+})
