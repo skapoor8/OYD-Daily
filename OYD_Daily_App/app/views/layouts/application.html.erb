@@ -5,7 +5,7 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'jquery-3.3.1.min', 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'jquery-3.3.1.min', 'semantic_ui/semantic_ui.js', 'application', 'data-turbolinks-track': 'reload' %>
 
   </head>
 
@@ -37,17 +37,6 @@
             </a>
           </div>
 
-          <script>
-            $(function() {
-              $('#menuIcon').click(function() {
-                $('#menu').sidebar('toggle');
-              })  
-            })
-
-            $(function(){
-              $('.ui.dropdown').dropdown();
-            })
-          </script>
 
           <div id="logoWrapper">
           <a class="item" id="logo">
