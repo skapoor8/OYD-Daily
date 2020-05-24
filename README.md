@@ -5,9 +5,10 @@ Form and Behavior Specification
 
 1. [Design Overview](#overview)
 2. [Interaction Detail](#interaction-detail)
-3. [MVP Outcome](#outcome) (Skip docs to take a look at the MVP)
+3. [Data Modeling](#data-modeling)
+4. [MVP Outcome](#outcome) (Skip docs to take a look at the MVP)
 
-1. ## Overview
+## 1. Overview
 
 This document describes a browser-based “app” for an instructor to enter in daily metrics to track school activity and monitor school growth. At the end of each day, a designated instructor for each school can enter this daily information to keep track of: attendance, prospective students (information), new students, new courses (e.g. MLT Training such as championships, iron hand, week long seminar, week end seminar, etc.), tests, drops, etc. By entering this data for each school on a daily basis, the instructors within the school can monitor school growth. With each school’s information up to date, a Regional instructor can monitor regional growth, and a higher belts can observe general school functions nationally.
 
@@ -29,7 +30,7 @@ The following is a video animatic of the general functionality on the data input
 
 More to come with respect to database table structures and data visualization
 
-2. ## Interaction Detail
+## 2. Interaction Detail
 This section describes specific interactions.
 
 ### 2.1. Instructor Experience
@@ -137,10 +138,10 @@ Both of the above feature sets would reduce instructor load on data entry, which
 ### 2.3. Other User Experience
 More to come on data and reporting feature set, which will occur within Data Studio and shared out on a school-by-school, region-by-region, and national basis to appropriate stakeholders.
 
-3. ## Data Modeling
+## 3. Data Modeling
 For details about data modeling see https://github.com/skapoo01/DailyDataAPI
 
-4. ## MVP Outcome
+## 4. MVP Outcome
 The MVP is deployed to heroku. See live demo [HERE](https://glacial-lake-93047.herokuapp.com/). You should see the following log in screen.
 
 ![](readme-images/oyd-daily-login.png)
