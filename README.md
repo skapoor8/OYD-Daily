@@ -3,10 +3,10 @@ Form and Behavior Specification
 
 ## Table of Contents
 
-1. [Design Overview](#overview)
+1. [Design Overview](#1.-overview)
 2. [Interaction Detail](#interaction-detail)
 3. [Data Modeling](#data-modeling)
-4. [MVP Outcome](#outcome) (Skip docs to take a look at the MVP)
+4. [MVP Outcome](#mvp-outcome) (Skip docs to take a look at the MVP)
 
 ## 1. Overview
 
